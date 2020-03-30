@@ -23,7 +23,7 @@
  Robust Hebrew Tokenizer 
 
  works as a filter:
-   hebtokenizer.py < in > out
+   python hebtokenizer.py -o utf-8 < corpus.txt > tokens.txt
    
  run as:
    hebtokenizer.py -h  
@@ -128,6 +128,6 @@ if __name__=='__main__':
   # for sent in fileinput.input(openhook=fileinput.hook_encoded(opts.in_enc)):
   for sent in sys.stdin.readlines():
     #print("\n".join(["%s %s" % (which,tok) for which,tok in tokenize(sent) if which not in FILTER]).encode("utf-8"))
-    print("\n".join([tok for (which,tok) in tokenize(sent)]),"\n")
+    print("\n".join([tok for (which,tok) in tokenize(sent)]),"\r\n")
     
 
