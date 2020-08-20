@@ -10,11 +10,11 @@ with open('DataModelSchema',encoding='utf_16_le') as json_file:
 
     for p in model['tables']:
 
-        if p['name'] in ('FactCompare','FactPlan','FactSimulation','FactOrganization','CalendarEvaluation'):
+        if 'measures' in p:
             for m in p['measures']:
                 f.writelines(p['name']+'\t'+'measure'+'\t'+m['name']+':='+' '.join(m['expression'].splitlines())+'\n')
 
-        if p['name'] in ('CalendarEvaluation','CalendarYear','FactCompare','FactPlan'):
+        if 'columns' in p:
             for c in p['columns']:
                 if 'type' in c:
                     if c['type']=='calculated':
